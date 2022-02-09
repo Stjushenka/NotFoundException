@@ -5,31 +5,34 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookTest {
+
+    Book book = new Book(1, "Мастер и Маргарита", 250, "Булгаков", 450, 1882);
+
     @Test
-    public void shouldHaveAllFieldsAndMethodFromSuperClass() {
-        Book book = new Book();
-//    book.
+    public void shouldMatchByName() {
+        String match = "Мастер и Маргарита";
+
+        assertTrue(book.matches(match));
     }
 
     @Test
-    public void shouldCastFromBaseClass() {
-        Product product = new Book();
-        if (product instanceof Book) {
-            Book book = (Book) product;
-//      book.
-        }
+    public void shouldMatchByAuthor() {
+        String match = "Булгаков";
+
+        assertTrue(book.matches(match));
     }
 
     @Test
-    public void shouldNotCastToDifferentClass() {
-        Product product = new Book();
-        TShirt shirt = (TShirt) product;
+    public void shouldFalseByAuthor() {
+        String match = "Толстой";
+
+        assertFalse(book.matches(match));
     }
 
     @Test
-    public void shouldUseOverridedMethod() {
-        Product product = new Book();
-        // Вопрос к аудитории: чей метод вызовется?
-        product.toString();
+    public void shouldCompareFalseName(){
+        String text = "Удушье";
+        assertFalse(book.matches(text));
     }
+
 }

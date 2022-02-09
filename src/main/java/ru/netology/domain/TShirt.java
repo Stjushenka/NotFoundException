@@ -13,6 +13,10 @@ public class TShirt extends Product {
     private String color;
     private String size;
 
+    public TShirt() {
+
+    }
+
 
     public TShirt(int id, String name, int price, String color, String size) {
         super(id, name, price);
@@ -20,19 +24,6 @@ public class TShirt extends Product {
         this.size = size;
     }
 
-    public TShirt() {
-
-    }
-
-    @Override
-    public boolean matches(String search) {
-        if (super.matches(search)) {
-            return true;
-        }
-
-        return color.contains(search) &&
-                size.contains(search);
-    }
 
     @Override
     public boolean equals(Object o) {
