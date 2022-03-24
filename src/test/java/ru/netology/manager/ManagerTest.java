@@ -50,7 +50,7 @@ public class ManagerTest {
     @Test
     public void shouldFindColor() {
         Product[] expected = {second};
-        Product[] actual = manager.searchBy("blue");
+        Product[] actual = manager.searchBy("red");
         assertArrayEquals(expected, actual);
     }
 
